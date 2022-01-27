@@ -5,10 +5,39 @@ import java.util.Scanner;
 public class Test4 {
 	public static void main(String[] args) {
 		Test4 loopTest = new Test4();
-		loopTest.test1();
+//		loopTest.test1();
+		loopTest.test2();
+	}
+	/**
+	 * while version
+	 * 문자열 길이 메소드 : java.lang.String.length()
+	 */
+	public void test2() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 입력 : ");
+		String str = sc.next();
+		System.out.print("검색할 문자 입력 : ");
+		char ch = sc.next().charAt(0);
+		//문자열 길이 변수
+		int sum = 0;
+		
+		int i = 0;
+		while(i < str.length()) {
+			if(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')
+			{			if(ch == str.charAt(i)) {
+					sum++;
+				}
+			}else {
+				System.out.println("영문자가 아닙니다."); break;
+			}
+			i++;
+		}
+		System.out.printf("%c가 포함된 횟수 : %d개", ch, sum);
+		
 	}
 	
 	/**
+	 * for version
 	 * 문자열 길이 method : java.lang.String.length()
 	 */
 

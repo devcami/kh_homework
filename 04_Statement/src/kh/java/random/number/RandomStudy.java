@@ -70,7 +70,7 @@ public class RandomStudy {
 //		int comCoin = rnd.nextBoolean()? 1 : 2 ;
 		
 		int comCoin = (int)(Math.random()*2)+ 1 ; 
-		System.out.println(comCoin);
+		System.out.printf("컴퓨터는 %d를 냈습니다.%n",comCoin);
 		
 //		결과
 		String result = 
