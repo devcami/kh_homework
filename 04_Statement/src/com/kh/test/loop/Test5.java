@@ -5,54 +5,82 @@ import java.util.Scanner;
 public class Test5 {
 	public static void main(String[] args) {
 		Test5 loopTest = new Test5();
-		loopTest.test1();
+
+		
+		
 	}
 	
 	public void test1() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("=======회원정보 프로그램=======");
-		System.out.print("몇명을 등록하시겠습니까 ? : ");
-		int member = sc.nextInt(); //기능추가 2 입력할 회원정보 수	
-		int num = 1; //회원 번호
-		
 		String name = "";
 		int age = 0;
-		String adr = "";
-		double height = 0;
-		double weight = 0;
+		String addr = "";
+		int height = 0;
+		int weight = 0;
 		String phone = "";
 		
-		//출력란
+		// 기능추가2 : 회원수 지정
+		System.out.print("몇명의 회원을 등록할까요? => ");
+		int memberCnt = sc.nextInt();
 		
-		for(int i = 1; i <= member; i++) {
-			System.out.printf("========%d번째 회원정보========%n",num);
+		String result = "=================== 저장회원 ==================\n";
+		
+		// 기능추가1 : 평균 구하기
+		int sumAge = 0;
+		int sumHeight = 0;
+		int sumWeight = 0;
+
+		double avgAge = 0;
+		double avgHeight = 0;
+		double avgWeight = 0;
+		
+		
+		for(int i = 0; i < memberCnt ; i++) {
+			System.out.println("-------------- " + (i + 1) + " -----------------");
 			
-			//사용자 입력란
-			System.out.print("이름 : ");
+			System.out.print("이름을 입력하세요 : ");
 			name = sc.next();
-			System.out.print("나이 : ");
+			
+			System.out.print("나이를 입력하세요 : ");
 			age = sc.nextInt();
-			sc.nextLine();//개행
-			System.out.print("주소 : ");
-			adr = sc.nextLine();
-			System.out.print("키 : ");
-			height = sc.nextDouble();
-			System.out.print("몸무게 : ");
-			weight = sc.nextDouble();
-			System.out.print("연락처 : ");
+			
+			sc.nextLine();
+			System.out.print("주소를 입력하세요 : ");
+			addr = sc.nextLine();
+			
+			System.out.print("키를 입력하세요 : ");
+			height = sc.nextInt();
+			
+			System.out.print("몸무게를 입력하세요 : ");
+			weight = sc.nextInt();
+			
+			System.out.print("연락처를 입력하세요 : ");
 			phone = sc.next();
 			
-//			최종 입력 후에 3명의 정보를 저장하고 3명을 한번에 호출하기,
-//			3명의 정보를 이용해 평균 나이, 키, 몸무게 구하기
-//			두개는 아직 나의 능력으로 풀 수 없음 ... ㅠ 
-			
-			System.out.printf("%d. %s %d세 %s %.1fcm %.1fkg %s%n",
-					num, name, age, adr, height, weight, phone);
-			num++;
-			
-		}	
-
-	}
+			result += (i + 1) + "\t" 
+					+ name + "\t" 
+					+ age + "\t"
+					+ addr + "\t"
+					+ height + "cm\t"
+					+ weight + "kg\t"
+					+ phone + "\n";
+			// 기능추가 1 : 평균구하기
+			sumAge += age;
+			sumHeight += height;
+			sumWeight += weight;
+		}
+		
+		// 기능추가 1 : 평균구하기
+		avgAge = (double) sumAge / memberCnt;
+		avgHeight = (double) sumHeight / memberCnt;
+		avgWeight = (double) sumWeight / memberCnt;
+		
+		result += "============================================\n";
+		System.out.println(result);	
+		// 기능추가 1 : 평균구하기
+		System.out.printf("평균나이 : %.1f세 | 평균신장 : %.1fcm | 평균몸무게 : %.1fkg", avgAge, avgHeight, avgWeight);
+	}	
+	
 }
 
 

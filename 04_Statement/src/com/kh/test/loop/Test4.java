@@ -26,7 +26,7 @@ public class Test4 {
 		int sum = 0;
 
 		for (int i = 0; i < inputStr.length(); i++) {
-			if(inputChar >= 'a' && inputChar <= 'z') {
+			if((inputChar >= 'a' && inputChar <= 'z') || (inputChar >= 'A' && inputChar <= 'Z')) {
 				if(inputChar == inputStr.charAt(i)) {
 					sum++;
 				}	
