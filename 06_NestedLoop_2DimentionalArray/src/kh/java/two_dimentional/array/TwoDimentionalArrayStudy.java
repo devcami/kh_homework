@@ -5,9 +5,9 @@ public class TwoDimentionalArrayStudy {
 		TwoDimentionalArrayStudy study = new TwoDimentionalArrayStudy();
 //		study.test1();
 //		study.test2();
-		study.test3();
+//		study.test3();
 	}
-	
+
 	/**
 	 * 2차원배열 초기화
 	 *  - 배열할당 + 번지수별 초기화 (선언 + 할당 + 값대입)

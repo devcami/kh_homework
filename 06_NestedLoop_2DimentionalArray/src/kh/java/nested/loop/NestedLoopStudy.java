@@ -13,8 +13,10 @@ public class NestedLoopStudy {
 //		study.test6();
 //		study.test7();
 //		study.test8();
-		study.test9();
+//		study.test9();
+		
 	}
+
 	
 	/**
 	 *  ◻◻◻
