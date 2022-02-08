@@ -16,17 +16,7 @@ public class Employee {
 	private String address;
 	
 	
-	public void menu() {
-		
-			System.out.println("***** 사원 정보 관리 프로그램 *****");
-			System.out.println("1. 새 사원 정보 입력");
-			System.out.println("2. 사원 정보 삭제");
-			System.out.println("3. 사원 정보 출력");
-			System.out.println("9. 끝내기");
-			System.out.println("*****************************");
 
-		
-	}
 	
 	
 	
@@ -139,6 +129,10 @@ public class Employee {
 	public String getAddress() {
 		return address;
 	}
+
+
+
+
 	
 
 

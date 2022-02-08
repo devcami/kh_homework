@@ -25,7 +25,7 @@ public class Student {
 	/**
 	 * this : 모든 non-static 메소드에 존재하는 현재 객체를 가리키는 숨은 참조변수
 	 */
-	public void setName(String name) {
+	public void setName(String name) {  
 		this.name = name;
 	}
 	public void setGender(char gender) {
