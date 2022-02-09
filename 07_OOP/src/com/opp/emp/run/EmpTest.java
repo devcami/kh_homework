@@ -14,6 +14,10 @@ public class EmpTest {
 		
 	}
 	
+	/**
+	 * 모든 non-static 메소드는 숨은 참조변수 this를 가진다
+	 * -this는 현재객체를 가리킨다.
+	 */
 	public void mainMenu() {
 		String menu = "******* 사원 정보 관리 프로그램 *******\n"
 				+ "\n"
@@ -41,6 +45,7 @@ public class EmpTest {
 					System.out.println("사원정보를 먼저 입력하세요.");
 					break;
 				}
+				//this.modifyMenu가 생략된거고 this 는 EmpTest 객체 t를 가리킨다.
 				modifyMenu(e);
 				break;
 			case 3 :
