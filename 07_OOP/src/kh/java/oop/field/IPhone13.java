@@ -25,6 +25,15 @@ public class IPhone13 {
 	//non-static field , 캡슐화 (객체마다 다른 특성)
 	private String owner;
 	private String number;
+	private boolean powerOn;
+	
+	//boolean의 getter는 is로 시작
+	public void setPowerOn(boolean powerOn) {
+		this.powerOn = powerOn;
+	}
+	public boolean isPowerOn() {
+		return powerOn;
+	}
 	
 	//private field 사용을 위해 setter/getter 만듦
 	public void setOwner(String owner) {

@@ -12,6 +12,11 @@ public class StaticMethod {
 	//2. 문자열(1)에서 전달받은 인덱스(2)의 문자를 전달받은 문자(3)로 변경하는 static 메소드
 	//메소드명 : setChar(String, int, char) : String
 	public static String setChar(String str, int i, char ch) {
+		
+		//char[] arr = str.toCharArray(); String -> char[]
+		//arr[i] = ch;
+		//char[] -> String
+		//return new String(arr); 
 		StringBuilder changeStr = new StringBuilder(str);
 		changeStr.setCharAt(i, ch);
 		return changeStr.toString();
