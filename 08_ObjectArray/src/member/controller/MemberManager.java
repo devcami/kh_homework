@@ -48,6 +48,16 @@ public class MemberManager {
 			System.out.printf("%s\t%s\t\t%d\t%.2f%n",
 					g.getName(), g.getGrade(), g.getPoint(), g.getInterest());
 		}
+		for(int i = 0; i < vIndex; i++) {
+			Vip v = vip[i];
+			System.out.printf("%s\t%s\t\t%d\t%.2f%n",
+					v.getName(), v.getGrade(), v.getPoint(), v.getInterest());
+		}
+		for(int i = 0; i < vvIndex; i++) {
+			VVip vv = vvip[i];
+			System.out.printf("%s\t%s\t\t%d\t%.2f%n",
+					vv.getName(), vv.getGrade(), vv.getPoint(), vv.getInterest());
+		}
 	}
 
 }
