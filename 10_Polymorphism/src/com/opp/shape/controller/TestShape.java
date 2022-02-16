@@ -1,8 +1,6 @@
 package com.opp.shape.controller;
 
-import com.opp.shape.model.Circle;
-import com.opp.shape.model.Rectangle;
-import com.opp.shape.model.Shape;
+import com.opp.shape.model.*;
 
 public class TestShape {
 
