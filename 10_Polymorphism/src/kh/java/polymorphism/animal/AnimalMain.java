@@ -11,8 +11,136 @@ public class AnimalMain {
 //		main.test3();
 //		main.test4();
 //		main.test5();
-		main.test6();
+//		main.test6();
+//		main.test7();
+//		main.test8();
+//		main.test9();
+//		main.test10();
+//		main.test11();
+		main.test12();
 		
+	}
+	
+	/**
+	 * 추상클래스에서 인터페이스 구현하기
+	 * Animal	  Soundable
+	 *  - 추상클래스(Animal)는 부모 추상메소드(Soundable의 getSound)를 구현하지 않아도 된다.
+	 */
+	public void test12() {
+		Animal[] animals = new Animal[4];
+		animals[0] = new Tiger();
+		animals[1] = new Lion();
+		animals[2] = new Bear();
+		animals[3] = new Eagle();
+		
+		for(Animal animal : animals) {
+			System.out.println(animal.getSound());
+		}
+	}
+	
+	/**
+	 * Eagle 클래스를 작성하세요.
+	 *  - Animal 클래스 상속
+	 *  - Flyable 인터페이스 구현
+	 *  	-> fly 추상메소드
+	 *  
+	 */
+	public void test11() {
+		Eagle eagle = new Eagle();
+		
+		eagle.say();
+		eagle.attack();
+		eagle.fly();
+		
+	}
+	
+	/**
+	 *  interface 다중 구현
+	 *  - 자식클래스는 여러개의 인터페이스를 구현할 수 있다.
+	 *  
+	 */
+	public void test10() {
+		Tiger tiger = new Tiger();
+		Washable washTiger = tiger;
+		
+		washTiger.wash();
+		
+		Runnable runTiger = tiger;
+		runTiger.run();
+	}
+	
+	/**
+	 * JDK8에 추가된 interface의
+	 * - default method : walk
+	 * - static method : warmup
+	 */
+	public void test9() {
+		Bear bear = new Bear();
+		bear.walk();
+		Runnable runner = new Tiger();
+		runner.walk();
+		
+		//static method : 객체를 만들지 않고 클래스.메소드명(); 으로 호출
+		Runnable.warmup();
+	}
+	
+	/**
+	 * 인터페이스와 구현클래스 사용하기
+	 * 
+	 */
+	public void test8() {
+		Bear bear = new Bear();
+		//Runnable도 부모로 작용
+		//다형성 적용 (상속, 모든메소드 override, Runnable 변수 (run)에 bear객체 담기(New Bear();))
+		//run = Runnable인척 하는 Bear
+		Runnable run = bear;
+		
+		bear.attack();
+		bear.say();
+		bear.run();
+		
+		//Runnable 관련 기능만 사용가능.
+		//동적바인딩 (다형성에 부모클래스 메소드 실행하면 자동으로 담은 자식 객체(Bear)의 메소드를 작동시킴
+		run.run(); 
+		System.out.println(Runnable.LEG_NUM);
+		
+		//부모타입의 배열 만들어서 여러 자식객체를 제어
+		Runnable[] runners = new Runnable[3];
+		runners[0] = new Tiger();
+		runners[1] = new Lion();
+		runners[2] = new Bear();
+		
+		for(Runnable runner : runners) {
+			runner.run();
+		}
+	}
+	
+	/**
+	 * 메소드 Override의 강제화
+	 * 	- 부모메소드를 추상메소드로 만들면 반드시 자식클래스에서 구현해야한다.
+	 * 	- 구현하지 않으면 컴파일 오류를 유발한다.
+	 * 
+	 * 	- 1. 추상클래스의 추상메소드
+	 * 	- 2. 인터페이스의 추상메소드
+	 * 
+	 * 	- 규격 : Animal의 모든 자식클래스는 say를 구현해야한다.
+	 */
+	public void test7() {
+		Animal[] animals = new Animal[3];
+		animals[0] = new Tiger();
+		animals[1] = new Lion();
+		animals[2] = new Bear();
+		
+		for(int i = 0; i < animals.length; i++) {
+			animals[i].say();
+			animals[i].attack();
+			animals[i].run();
+			
+			System.out.println();
+		}
+		
+		//추상클래스는 객체화 할 수 없다. (객체생성 할 수 없다)
+//		Animal a = new Animal(); cannot instanciate
 	}
 	
 	/**
@@ -22,10 +150,8 @@ public class AnimalMain {
 	 */
 	public void test6() {
 		// 정적바인딩
-		Animal animal = new Animal();
 		Tiger tiger = new Tiger();
 		
-		animal.say();
 		tiger.say();
 		
 		System.out.println();
@@ -128,8 +254,6 @@ public class AnimalMain {
 		System.out.println(tiger instanceof Animal); //true
 		System.out.println(tiger instanceof Object); //true
 		
-		Animal animal2 = new Animal();
-		System.out.println(animal2 instanceof Tiger); //false
 		
 	}
 	

@@ -12,7 +12,10 @@ public class MemberManager {
 	
 	
 	public void insertMember(Member member) {
-		
+		if(index == MAX_MEMBER) { 
+			System.out.println("더이상 입력할 수 없습니다.");
+			return;
+		}
 		members[index++] = member;
 		
 	}
@@ -22,8 +25,15 @@ public class MemberManager {
 		System.out.println("----------------------------------------");
 		
 		for(int i = 0; i < index; i++) {
-			System.out.println(members[i].getName() + "\t" + members[i].getGrade() + "\t" + "\t"  +
-							   members[i].getPoint() + "\t" + members[i].getEjaPoint() + "\t" );
+			System.out.println(members[i].getMemberInfo());
+		}
+		System.out.println("----------------------------------------");
+	}
+	
+	public void printBuyInfo(int price) {
+
+		for(int i = 0; i < index; i++) {
+			System.out.println(members[i].getBuyInfo(price));
 		}
 	}
 

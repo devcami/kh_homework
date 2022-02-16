@@ -1,20 +1,20 @@
 package member.model.vo;
 
-public class Gold extends Member {
-	
-	public Gold() {
+public class Ruby extends Member {
+
+	public Ruby() {
 		super();
 	}
-	
-	public Gold(String name, String grade, int point) {
+
+	public Ruby(String name, String grade, int point) {
 		super(name, grade, point);
-		getEjaPoint();
 	}
 	
 	@Override
 	public double getEjaPoint() {
-		return super.getPoint() * 0.05;
+		return super.getPoint() * 0.3;
 	}
+	
 	@Override
 	public String getMemberInfo() {
 		return super.getMemberInfo() + getEjaPoint();
@@ -22,8 +22,9 @@ public class Gold extends Member {
 
 	@Override
 	public int buy(int price) {
-		return (int)(price - (price * 0.05));
+		return (int)(price - (price * 0.3));
 	}
+
 	@Override
 	public String getBuyInfo(int price) {
 		return super.getBuyInfo(price) + this.buy(price) + "원에 구매합니다.";

@@ -1,6 +1,6 @@
 package kh.java.polymorphism.animal;
 
-public class Lion extends Animal {
+public class Lion extends Animal implements Washable{
 
 	public void kick() {
 		System.out.println("라이언 킥을 날렸습니다.");
@@ -14,5 +14,21 @@ public class Lion extends Animal {
 	@Override
 	public void attack() {
 		kick();
+	}
+
+	@Override
+	public void run() {
+		System.out.println("라이언이 " + LEG_NUM + "발로 달립니다.");		
+	}
+
+	@Override
+	public void wash() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSound() {
+		return "롸?";
 	}
 }
