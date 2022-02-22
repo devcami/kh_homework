@@ -35,7 +35,7 @@ public class FileIOStudy {
 			//해당 경로가 디렉토리 또는 권한부족 시 FileNotFoundException을 던진다.
 			
 			int len = 0; //읽어온 byte수
-			byte[] bytes = new byte[8192]; //BufferedReader가 내부적으로 사용하는 버퍼크
+			byte[] bytes = new byte[8192]; //BufferedReader가 내부적으로 사용하는 버퍼크기
 			//파일을 byte단위로 읽어서 리턴
 			//파일을 모두 읽었으면 값없음(-1)리턴
 			while((len = bis.read(bytes)) != -1) {

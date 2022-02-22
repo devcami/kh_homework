@@ -23,14 +23,13 @@ public class Test1 {
 			fileName = br.readLine();
 			br = new BufferedReader(new FileReader(fileName));
 			
-			String contents = null;
+			int contents = 0;
 			StringBuilder sb = new StringBuilder();
 			
-			while((contents = br.readLine()) != null) {
-				sb.append(contents);
-				sb.append("\n");
+			while((contents = br.read()) != -1) {
+				sb.append((char)contents);
 			}
-			System.out.println(sb.toString());
+			System.out.println(sb);
 		} catch(IOException e) {
 			e.printStackTrace();
 		} finally {
