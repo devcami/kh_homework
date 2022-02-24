@@ -1,9 +1,13 @@
 package kh.java.collections.list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ArrayListStudy {
@@ -14,8 +18,100 @@ public class ArrayListStudy {
 //		study.test1();
 //		study.test2();
 //		study.test3();
-		study.test4();
+//		study.test4();
+//		study.test5();
+//		study.test6();
+		study.test7();
 	}
+	/**
+	 * LinkedList
+	 * 사용방법은 ArrayList와 동일하고 내부적인 처리만 다르다.
+	 * 	- 중간에 요소추가/삭제가 빈번히 일어나는 데이터를 관리한다면 LinkedList를 사용
+	 */
+	private void test7() {
+		List<Integer> list = new LinkedList<>();
+		list.add(3);
+		list.add(2);
+		list.add(4);
+		list.add(5);
+		list.add(1);
+		System.out.println(list);
+	}
+
+	/**
+	 * 커스텀 객체를 정렬하기
+	 * 	방법
+	 *  - 기본 정렬기준 만들기(1개) : 해당클래스(Studnet)가 Comparable interface 구현
+	 *  - 그외 정렬기준(n개) : 별도의 Comparator구현클래스 만들기(정렬기준당 1개)
+	 * 
+	 *  - 학생번호 오름차순 (기본정렬기준)
+	 *  - 학생번호 내림차순
+	 *  - 학생이름 오름차순
+	 *  - 학생이름 내림차순
+	 *  ...
+	 */
+	private void test6() {
+		
+		List<Student> listStudents = new ArrayList<>();
+		listStudents.add(new Student(3, "홍길동"));
+		listStudents.add(new Student(2, "신사임당"));
+		listStudents.add(new Student(5, "세종대왕"));
+		listStudents.add(new Student(1, "이순신"));
+		listStudents.add(new Student(4, "장영실"));
+		
+		//기본정렬과 그 역순
+		
+//		Student가 Comparable interface를 구현해야한다.
+//		Collections.sort(listStudents);
+//		Comparator<Student> comp = Collections.reverseOrder();
+//		Collections.sort(listStudents,comp);
+		
+		
+		//기타정렬과 그 역순
+//		Comparator<Student> comp = new StudentNameComparator();
+		Comparator<Student> comp = Collections.reverseOrder(new StudentNameComparator());
+		Collections.sort(listStudents, comp);
+		
+		for(int i = 0; i < listStudents.size(); i++) 
+			System.out.println(i + " " + listStudents.get(i));
+		
+	}
+
+
+	/**
+	 * List 정렬
+	 */
+	private void test5() {
+		List<Integer> list = new ArrayList<>();
+		list.add(3);
+		list.add(2);
+		list.add(5);
+		list.add(4);
+		list.add(1);
+		System.out.println(list);
+		
+		// 정렬
+		//1. Integer 기본 정렬
+		Collections.sort(list); //오름차순 sort(List<>)
+		
+		Comparator<Integer> comparator = Collections.reverseOrder(); //Comparator : 비교 기준 객체, 기본정렬역순
+		Collections.sort(list, comparator); //내림차순 sort(List<> , Comparator
+		
+		System.out.println(list);
+		
+		//2. String 가나다순 정렬
+		//Arrays.asList(String...)
+		List<String> names = Arrays.asList("홍길동", "신사임당", "고주몽", "장영실", "논개");
+		
+		Collections.sort(names); //오름차순
+		
+		Comparator<String> comparator2 = Collections.reverseOrder();
+		Collections.sort(names, comparator2); //내림차순
+		
+		System.out.println(names);
+		
+	}
+
 	/**
 	 * List api
 	 */

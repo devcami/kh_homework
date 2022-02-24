@@ -1,6 +1,8 @@
 package kh.java.collections.list;
 
-public class Student {
+import java.util.Objects;
+
+public class Student implements Comparable<Student> {
 	private int no;
 	private String name;
 	
@@ -29,5 +31,34 @@ public class Student {
 		return "Student [no = " + no + ", name = " + name + "]";
 	}
 	
+	/**
+	 * 학생번호를 기준으로 정렬
+	 * 리턴값
+	 * - 음수 : 이면 자리교환이 일어남
+	 * - 0
+	 * - 양수
+	 */
+	@Override
+	public int compareTo(Student other) {
+		return this.no - other.no;
+	}
+	
+	/**
+	 * equals의 결과가 true라면, 동일한 hashCode를 리턴해야 한다.
+	 * - 동일한 필드를 사용해서 두 메소드를 Override해야한다.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		Student other = (Student) obj;
+		if(this.no == other.no && this.name.equals(other.name))
+			return true;
+		else
+			return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.no, this.name);
+	}
 	
 }
