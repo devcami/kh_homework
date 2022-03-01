@@ -40,12 +40,10 @@ public class MusicMenu {
 		while(true) {
 			System.out.print(menu);
 			String choice = sc.next();
-			List<Music> musicList = null;
 			
 			switch(choice) {
 			case "1" : 
-				musicList = manager.selectList();  //List<Music> 가져오기
-				printList(musicList);			   //List<Music> 출력하기
+				printList(manager.selectList());
 				break;
 			case "2" : 
 				manager.addList(inputMusic()); 
@@ -56,12 +54,15 @@ public class MusicMenu {
 			case "4" :
 				boolean remove = manager.removeMusic(inputTitle());
 				String removeTitle = remove ? "음악이 삭제되었습니다." : "제목을 잘못입력하셨습니다. 삭제되지 않았습니다.";
+				//System.out.println(remove ? "음악이 삭제되었습니다." : "제목을 잘못입력하셨습니다. 삭제되지 않았습니다.");
 				System.out.println(removeTitle);
 				break;
 			case "5" :
+//				Music oldMusic = inputMusic();
+//				Music newMusic = inputMusic();
+//				boolean replace = manager.replaceMusic(oldMusic, newMusic);
 				boolean replace = manager.replaceMusic(inputMusic(), inputMusic());
-				String replaceMusic = replace? "음악이 교체되었습니다." : "등록된 해당 음악이 없습니다.";
-				System.out.println(replaceMusic);
+				System.out.println(replace? "음악이 교체되었습니다." : "등록된 해당 음악이 없습니다.");
 				break;
 			case "6" : 
 				manager.searchMusicByTitle(inputTitle());

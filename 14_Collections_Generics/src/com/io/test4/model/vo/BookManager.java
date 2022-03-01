@@ -19,11 +19,11 @@ public class BookManager {
 	
 	public void fileSave() {
 		Book[] books = new Book[5];
-		books[0] = new Book("책이름1" ,"저자1", 10_000, new GregorianCalendar(2022, 1-1, 1));
-		books[1] = new Book("책이름2" ,"저자2", 20_000, new GregorianCalendar(2022, 2-1, 2));
-		books[2] = new Book("책이름3" ,"저자3", 30_000, new GregorianCalendar(2022, 3-1, 3));
-		books[3] = new Book("책이름4" ,"저자4", 40_000, new GregorianCalendar(2022, 4-1, 4));
-		books[4] = new Book("책이름5" ,"저자5", 50_000, new GregorianCalendar(2022, 5-1, 5));
+		books[0] = new Book("책이름1" ,"저자1", 10_000, new GregorianCalendar(2022, 1-1, 1, 1, 1));
+		books[1] = new Book("책이름2" ,"저자2", 20_000, new GregorianCalendar(2022, 2-1, 2, 2, 2));
+		books[2] = new Book("책이름3" ,"저자3", 30_000, new GregorianCalendar(2022, 3-1, 3, 3, 3));
+		books[3] = new Book("책이름4" ,"저자4", 40_000, new GregorianCalendar(2022, 4-1, 4, 4, 4));
+		books[4] = new Book("책이름5" ,"저자5", 50_000, new GregorianCalendar(2022, 5-1, 5, 5, 5));
 		
 		try(ObjectOutputStream oos = 
 				new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("books.dat")));) {

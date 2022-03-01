@@ -49,9 +49,10 @@ public class Book implements Serializable {
 	}
 	@Override
 	public String toString() {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy'년' MM'월' dd'일 출간'");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy'년' MM'월' dd'일' HH'시' mm'분 출간'");
 		String publishDate = format.format(dates.getTime());
 		
-		return "[Book Title : " + title + ", Author : " + author + ", Price : " + price + ", Publish date : " + publishDate + "]";
+		return "[Book Title : " + title + ", Author : " + author + ", Price : " + price +
+				", Publish date : " + publishDate + "]";
 	}
 }

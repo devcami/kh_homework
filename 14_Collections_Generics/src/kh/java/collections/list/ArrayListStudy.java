@@ -20,8 +20,8 @@ public class ArrayListStudy {
 //		study.test3();
 //		study.test4();
 //		study.test5();
-//		study.test6();
-		study.test7();
+		study.test6();
+//		study.test7();
 	}
 	/**
 	 * LinkedList
@@ -69,12 +69,12 @@ public class ArrayListStudy {
 		
 		//기타정렬과 그 역순
 //		Comparator<Student> comp = new StudentNameComparator();
-		Comparator<Student> comp = Collections.reverseOrder(new StudentNameComparator());
-		Collections.sort(listStudents, comp);
-		
+//		Comparator<Student> comp = Collections.reverseOrder(new StudentNameComparator());
+//		Collections.sort(listStudents, comp);
+//		
 		for(int i = 0; i < listStudents.size(); i++) 
 			System.out.println(i + " " + listStudents.get(i));
-		
+//		
 	}
 
 
