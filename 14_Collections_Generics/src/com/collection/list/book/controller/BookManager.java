@@ -9,13 +9,14 @@ import com.collection.list.book.model.vo.Book;
 
 public class BookManager {
 	
-	private List<Book> bookList = new ArrayList<>();
+	private List<Book> bookList;
 
 	public BookManager() {
-		bookList.add(new Book("1", 1, "책1", "저자1"));
-		bookList.add(new Book("2", 2, "책2", "저자2"));
-		bookList.add(new Book("3", 3, "책3", "저자3"));
-		bookList.add(new Book("4", 4, "책4", "저자4"));
+//		bookList.add(new Book("1", 1, "책1", "저자1"));
+//		bookList.add(new Book("2", 2, "책2", "저자2"));
+//		bookList.add(new Book("3", 3, "책3", "저자3"));
+//		bookList.add(new Book("4", 4, "책4", "저자4"));
+		bookList = new ArrayList<>();
 	}
 
 	public BookManager(List<Book> bookList) {
