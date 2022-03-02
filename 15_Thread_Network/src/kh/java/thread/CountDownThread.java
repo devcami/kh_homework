@@ -9,8 +9,8 @@ public class CountDownThread implements Runnable {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-//				e.printStackTrace();
-				break; //반복문 탈출
+				e.printStackTrace();
+//				break; //반복문 탈출
 			}
 		}
 		System.out.println("[" + Thread.currentThread().getName() + " 종료 !]");

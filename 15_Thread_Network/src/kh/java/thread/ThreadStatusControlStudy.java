@@ -16,15 +16,15 @@ public class ThreadStatusControlStudy {
 		ThreadStatusControlStudy study = new ThreadStatusControlStudy();
 //		study.test1();
 //		study.test2();
-//		study.test3();
+		study.test3();
 //		study.test4();
-		study.test5();
+//		study.test5();
 		
 		System.out.println("[" + Thread.currentThread().getName() + " 종료 !]");
 	}
 	
 	/**
-	 * interupt
+	 * interrupt
 	 * - 특정 쓰레드 종료
 	 */
 	private void test5() {
@@ -62,8 +62,8 @@ public class ThreadStatusControlStudy {
 		Thread th = new Thread(new CountDownThread(),"카운트다운");
 		th.setDaemon(true);
 		th.start();
-		
 		System.out.println("엔터 입력 시 카운트다운 종료 !!!");
+		
 		new Scanner(System.in).nextLine();
 	}
 
