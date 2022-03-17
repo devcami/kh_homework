@@ -1,11 +1,10 @@
- 
 ---------
 --220317
 ---------
 
 --1)
 select
-    to_char(to_date('20201225','yyyymmdd'), 'day') "201225"
+    to_char(to_date('20201225','yyyymmdd'), 'day') "20201225"
 from
     dual;
 
@@ -21,9 +20,9 @@ select
     j.job_name 직급명
 from
     employee e 
-        join department d
-            on e.dept_code = d.dept_id
-        join job j
+        left join department d
+            on nvl(e.dept_code, 0) = nvl(d.dept_id, 0)
+        left join job j
             on e.job_code = j.job_code
 where
     (substr(e.emp_no, 1, 2) between 70 and 79)
@@ -42,7 +41,7 @@ select
 from
     employee e
         join department d
-            on e.dept_code = d.dept_id
+            on nvl(e.dept_code, 0) = nvl(d.dept_id, 0)
         join job j
             on e.job_code = j.job_code
 where
@@ -59,10 +58,10 @@ select
     d.dept_title 부서명
 from
     employee e
-         join department d
-            on e.dept_code = d.dept_id
+         left join department d
+            on nvl(e.dept_code, 0) = nvl(d.dept_id, 0)
 where
-    emp_name like '%형%';
+    e.emp_name like '%형%';
 
 --5)
 select
@@ -73,7 +72,7 @@ select
 from
     employee e
         join department d
-            on e.dept_code = d.dept_id
+            on nvl(e.dept_code, 0) = nvl(d.dept_id, 0)
         join job j
             on e.job_code = j.job_code
 where
@@ -88,19 +87,18 @@ select * from nation;
 select
     e.emp_name 사원명,
     e.bonus 보너스포인트,
-    d.dept_title 부서명,
-    n.national_name 근무지역명
+    nvl(d.dept_title, '무소속') 부서명,
+    nvl(n.national_name, '무소속') 근무지역명
 from
     employee e
-        join department d
-            on e.dept_code = d.dept_id
-        join location l
+        left join department d
+            on nvl(e.dept_code, 0) = nvl(d.dept_id, 0)
+        left join location l
             on d.location_id = l.local_code
-        join nation n
+        left join nation n
             on l.national_code = n.national_code
 where
      e.bonus is not null;
-
 
 --7)
 select
@@ -168,9 +166,10 @@ from
 where
     nvl(e2.dept_code, 0) not in (select nvl(dept_code, 0) from employee where e1.emp_name = e2.emp_name)
 order by
-    3;
+    3 , 1;
 
 ---테스트
+-- 내이름 = 내이름 제외
 select dept_code from employee where emp_name = emp_name;
 
 
