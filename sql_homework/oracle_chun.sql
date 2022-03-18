@@ -93,9 +93,70 @@ select
 from
     tb_student
 where
+--  extract(year from entrance_date) = 2002
     substr(student_no, 1, 2) in 'A2'
     and absence_yn in 'N'
     and student_address like '%전주%';
 
+----------------
+--20220318
+---------------- oracle문법으로 변환
 
+select * from tb_department;      --학과
+select * from tb_student;         --학생      | 학과.학과번호 department_no
+select * from tb_class;           --수업      | 학과.학과번호 department_no
+select * from tb_class_professor; --수업-교수  | 수업.과목번호 class.no  | 교수.교수번호
+select * from tb_professor;       --교수      | 학과.학과번호
+select * from tb_grade;           --학점      | 수업.과목번호 | 학생.학생번호 
 
+--1.
+select
+    student_no 학번
+    ,student_name 학생명
+    ,nvl(p.professor_name, '없음') 교수명
+from
+    tb_student s, tb_professor p
+where
+    s.coach_professor_no = p.professor_no(+);
+    
+--2.
+select
+    decode(grouping(d.department_name), 0, d.department_name, 1, '총교수인원') 학과명
+    ,decode(grouping(p.professor_name), 0, p.professor_name, 1, '학과교수인원') 교수명
+    ,count(p.professor_name) 인원수
+    
+from 
+    tb_department d, tb_professor p
+where
+    d.department_no = p.department_no
+group by
+    rollup(d.department_name, p.professor_name);
+
+--3.
+select
+    s.student_name 이름
+    ,g.student_no 학번
+    ,round(avg(g.point), 2) 학점
+from
+    tb_student s, tb_grade g
+where
+    s.student_no = g.student_no
+    and
+    s.student_name like '%람'
+group by
+    s.student_name, g.student_no;
+
+--4.
+select
+    s.student_name 학생명
+    ,g.term_no 학기
+    ,c.class_name 과목명
+    ,g.point 학점
+from
+    tb_student s, tb_grade g, tb_class c
+where
+    s.student_no = g.student_no and
+    g.class_no = c.class_no
+order by
+    1;
+    
