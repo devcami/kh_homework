@@ -2,7 +2,7 @@ package product.management.model.vo;
 
 import java.sql.Timestamp;
 
-public class ProductIO {
+public class ProductIO extends Product{
 	private int no;
 	private String id;
 	private String name;
@@ -10,6 +10,7 @@ public class ProductIO {
 	private int count;
 	private String status;
 	private Timestamp ioDatetime;
+	
 	public ProductIO() {
 		super();
 		// TODO Auto-generated constructor stub
