@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20220406hw1</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li>
+                    <label for="supName">납품자명(필수) : </label>
+                    <input type="text" id="supName" name="supName" required>
+                    <br><br>
+                </li>
+                <li>
+                    <label for="email">email(필수) : </label>
+                    <input type="email" name="email" id="email" placeholder="answer@naver.com" required>
+                    <br><br>
+                </li>
+                <li>
+                    <label for="homepage">홈페이지 : </label>
+                    <input type="url" name="homepage" id="homepage" value="http://">
+                    <br><br>
+                </li>
+            
+                <li>
+                    <label for="region">지역 : </label>
+                    <select name="region" id="region">
+                        <option value="">선택</option>
+                        <option value="pusan" selected>부산</option>
+                        <option value="seoul">서울</option>
+                        <option value="jeju">제주</option>
+                    </select>
+                    <br>
+                </li>
+            </ol>   
+        </fieldset>
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>
+                    <label for="prdName">상품명(필수) : </label>
+                    <input type="text" name="prdName" id="prdName" required>
+                    <br><br>
+                </li>
+                <li>
+                    <label for="prdCnt">납품수량(필수) : </label>
+                    <input type="number" name="prdCnt" id="prdCnt" required min="100" placeholder="최소 100">
+                    <br><br>
+                </li>
+                <li>
+                    <label for="prdGrade">납품등급(필수) : </label>
+                    <input type="range" name="prdGrade" id="prdGrade" required min="0" max="100" step="5">
+                    <br><br>
+                </li>
+                <li>
+                    <label for="memo">기타사항 : </label>
+                    <textarea name="memo" id="" cols="20" rows="3"></textarea>
+                    <br>
+                </li>
+            </ul>
+        </fieldset>
+        <br>
+        <input type="submit" value="send message">
+    </form>
+</body>
+</html>
