@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 레이아웃</title>
+</head>
+	<body>
+		<div id="container">
+			<header>
+				<h2>Header</h2>
+				<nav>
+					<ul class="navi">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">HTML5</a></li>
+						<li><a href="#">CSS3</a></li>
+						<li><a href="#">JQuery</a></li>
+						<li><a href="#">Mobile</a></li>
+						<li><a href="#">Profile</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section id="content">
+				<article>
+					<h3>Article1</h3>
+					<p>동력은 역사를 끝까지 사라지지 생명을 사막이다. 귀는 풀이 맺어, 산야에 안고, 아니다. 아니한 가치를 끓는 어디 같은 간에 희망의 커다란 이것이다. 인생을 가장 어디 아니한 사랑의 석가는 몸이 교향악이다.</p>
+				</article>
+				<article>
+					<h3>Article2</h3>
+					<p>동산에는 살았으며, 반짝이는 불어 곳이 그들은 것이다.보라, 영원히 것이다. 행복스럽고 낙원을 옷을 하였으며, 살았으며, 아름다우냐?</p>
+				</article>
+			</section>
+			<aside>
+				<h4>Aside</h4>
+			</aside>
+
+			<footer>
+				<h3>Footer</h3>
+				<p>&lt;Copyright 2017. <strong>KH정보교육원</strong>. All rights reserved.&gt;</p>
+			</footer>
+		</div>
+	</body>
+	<style>
+		#container{
+			width: 990px;
+			background-color: rgb(237, 237, 237);
+			padding: 10px;
+		}
+		header {
+			padding: 10px;
+			width: 970px;
+			height: 95px;
+			background-color: rgb(163, 156, 156);
+			display: flex;
+			flex-direction: column;
+		}
+		nav ul{
+			text-align: right;
+			list-style: none;
+		}
+		.navi li {
+			display: inline;
+		}
+		.navi li:not(:last-of-type)::after{
+			content: "|";
+		}
+		.navi li a{
+			margin: 10px;
+			text-decoration: none;
+			color: black;
+			font-size: large;
+		}
+		.navi li a:hover{
+			color: white;
+		}
+		#content{
+			float: left;
+			width: 640px;
+  			height: 400px;
+			background-color: rgb(250, 250, 250);
+		}
+		section article{
+			padding: 10px;
+		}
+		section article p{
+			font-size: larger;
+			font-weight: 300;
+		}
+		aside{
+			float: left;
+			width: 350px;
+    		height: 400px;
+			background-color:rgb(224, 219, 219);
+		}
+		aside h4{
+			padding: 10px;
+		}
+		footer{
+			clear: both;
+			height: 150px;
+			background-color: gray;
+		}
+		footer h3{
+			padding: 10px;
+		}
+		footer p{
+			text-align: center;
+		}
+	</style>
+</html>
