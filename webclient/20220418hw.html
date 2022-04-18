@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20220418hw</title>
+</head>
+<body>
+  <button onclick="hw();">hw</button>
+  <script>
+    //1
+    function hw(){
+      let z = 50;
+      (() => {
+          let z = 55;
+          z += 45;
+          console.log(`z = ${z}`); //100
+      })();              
+    console.log(`z = ${z}`); //50
+    
+    //2
+    //z = 50
+    let y = 99;
+    (() => {
+        let x = 100;
+        let y = 9;
+        z = 1;
+        console.log(`x + y + z = ${x + y + z}`); //110
+    })();
+    console.log(`y + z = ${y + z}`); //149 X-> y=99 z=1 100
+    // console.log(`x + y + z = ${x + y + z}`); //x undefined
+
+    //3
+    for (let i = 1; i <= 10; i++) {
+        console.log(i); // 1~10까지 출력
+    }
+    (() => {
+        // console.log(`i = ${i}`); // i undefined
+    })();
+    //4 closer 예습문제
+    function foo(){
+        const num = 100;
+        return () => {
+            console.log(`num = ${num}`);
+        }
+    }
+    const num = 200;
+    const too = foo(); 
+        // () => {
+        //     console.log(`num = 100`);
+        // }
+    too(); //num = 100
+    };
+
+
+  </script>
+</body>
+</html>
