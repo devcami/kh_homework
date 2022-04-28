@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20220428hw</title>
+</head>
+<body>
+  <button id="btn8">fetch</button>
+  <div id="fetch-result"></div>
+  <div id="github-img"></div>
+  <script>
+    const USER_URL = "https://asia-northeast3-focal-elf-326215.cloudfunctions.net/user";
+  let GIT_URL = " https://api.github.com/users/";
+  btn8.addEventListener('click', () => {
+    fetch(USER_URL)
+      .then((response) => {
+        // 첫 응답메세지가 도착했을 때 resolve실행
+        console.log(response);
+        return response.json(); //json데이터를 js object 변환
+      })
+      //then을 한번 더 돌려줘야 데이터에 접근할 수 있음
+      .then((data) => {
+        console.log('data : ', typeof data, data);
+        const container = document.querySelector('#fetch-result');
+        container.innerHTML = `<table>
+          <tr>
+            <th>id</th>
+            <td>${data.id}</td>
+          </tr>
+          <tr>
+            <th>company</th>
+            <td>${data.company}</td>
+          </tr>
+          <tr>
+            <th>classroom</th>
+            <td>${data.classroom}</td>
+          </tr>
+        </table>`;
+        //사진 추가하기
+        fetch(GIT_URL + data.id)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            const img = document.querySelector('#github-img');
+            img.innerHTML = `<img src="${data.avatar_url}">`;
+          });
+      });
+  });
+  </script>
+  
+</body>
+</html>
