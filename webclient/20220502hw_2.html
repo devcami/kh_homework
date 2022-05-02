@@ -78,20 +78,24 @@
       $('table *').removeAttr('style');
     };
     function click1(){
-      $('tr').each((index, tr) => {
-        if(tr.firstChild.innerText == '가') {
-          $(tr.children).not(':first-child')
-          .css('color', 'yellow')
-        }
-      });
+      // $('tr').each((index, tr) => {
+      //   if(tr.firstChild.innerText == '가') {
+      //     $(tr.children).not(':first-child')
+      //     .css('color', 'yellow')
+      //   }
+      // });
+      $('tr:contains("가")').children().not(':first')
+        .css('color', 'yellow');
     };
-    function click2(){ 
-      $('tr').each((index, tr) => {
-        if(tr.firstChild.innerText == '나') {
-          $(tr.children).not(':first-child')
-          .css('color', 'yellow')
-        }
-      });
+    function click2() {
+      // $('tr').each((index, tr) => {
+      //   if(tr.firstChild.innerText == '나') {
+      //     $(tr.children).not(':first-child')
+      //     .css('color', 'yellow')
+      //   }
+      // });
+      $('tr:contains("나")').children().not(':first')
+        .css('color', 'yellow');
     };
     function click3(){ 
       $('tr td').filter((index, td) => index % 3 == 1)
