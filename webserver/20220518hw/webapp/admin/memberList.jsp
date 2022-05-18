@@ -125,9 +125,9 @@ window.onload = () => {
 		div.style.display = "inline-block";
 		if(searchType == "gender"){
 			if(searchKeyword == "F"){
-				div.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.checked = true;
+				document.querySelector('[value=F]').checked = true;
 			}else{
-				div.firstElementChild.firstElementChild.nextElementSibling.checked = true;
+				document.querySelector('[value=M]').checked = true;
 			}
 		}else{
 			div.firstElementChild.firstElementChild.nextElementSibling.value = searchKeyword;
@@ -152,9 +152,9 @@ searchType.addEventListener('change', (e) => {
 
 document.querySelectorAll(".member-role").forEach((select) => {
 	select.addEventListener('change', (e) => {
-		/* console.dir(e.target); 
-		console.log(e.target.dataset.memberId); 
-		console.log(e.target.value); // "U "A" */
+		//console.dir(e.target); 
+		//console.log(e.target.dataset.memberId); 
+		//console.log(e.target.value); // "U "A"
 		
 		const memberId = e.target.dataset.memberId;
 		const memberRole = e.target.value;
