@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/board.css" />
 <section id="board-container">
 	<h2>게시판 </h2>
+	<% if(loginMember != null){ %>
+		<input type="button" value="글쓰기" id="btn-add" onclick="location.href='<%= request.getContextPath() %>/board/boardEnroll';" />
+	<% } %>
 	<table id="tbl-board">
 		<thead>
 			<tr>
@@ -35,35 +38,15 @@
 					</td>
 					<td><%= board.getReadCount() %></td>
 				</tr>
-		<% } 
-		} else { %>
-			<tr>
-				<td colspan="6">조회된 게시글이 없습니다.</td>
-			</tr>
-		<% } %>
-<%-- 			<tr>
-				<td>1</td>
-				<td>봄이 왔습니다.</td>
-				<td>honggd</td>
-				<td>2022-05-23</td>
-				<td></td>
-				<td>10</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>봄이 갔습니다.</td>
-				<td>honggd</td>
-				<td>2022-06-23</td>
-				<td>
-					<img src="<%= request.getContextPath() %>/images/file.png" alt="">
-				</td>
-				<td>13</td>
-			</tr> --%>
+			<% } 
+			} else { %>
+				<tr>
+					<td colspan="6">조회된 게시글이 없습니다.</td>
+				</tr>
+			<% } %>
 		</tbody>
 	</table>
 
-	<div id='pageBar'>
-		<%= pagebar %>
-	</div>
+	<div id='pageBar'> <%= pagebar %> </div>
 </section>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

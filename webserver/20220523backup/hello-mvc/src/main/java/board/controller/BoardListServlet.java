@@ -42,12 +42,15 @@ public class BoardListServlet extends HttpServlet {
 			param.put("start", start);
 			param.put("end", end);
 			
+			// content 영역
 			List<BoardExt> list = boardService.findAll(param);
 			
+			// pagebar 영역
 			int totalContents = boardService.getTotalContents();
 			String url = request.getRequestURI(); // /mvc/admin/memberList
 			String pagebar = HelloMvcUtils.getPagebar(cPage, numPerPage, totalContents, url);
 			
+			//view단 처리
 			request.setAttribute("list", list);
 			request.setAttribute("pagebar", pagebar);
 			request.getRequestDispatcher("/WEB-INF/views/board/boardList.jsp")
