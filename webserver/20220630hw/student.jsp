@@ -84,8 +84,8 @@ window.addEventListener('load', (e) => {
         </form>
 	</div>
 </body>
-<script>
 <c:if test="${param.no}">
+<script>
 const updateStudent = () => {
 	document.studentUpdateFrm.addEventListener('submit', (e) => {
 		e.preventDefault();
