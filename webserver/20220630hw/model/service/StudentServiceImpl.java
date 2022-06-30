@@ -48,7 +48,7 @@ public class StudentServiceImpl implements StudentService{
 		} finally {
 			sqlSession.close();
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class StudentServiceImpl implements StudentService{
 		} finally {
 			sqlSession.close();
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
