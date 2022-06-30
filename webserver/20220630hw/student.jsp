@@ -84,7 +84,6 @@ window.addEventListener('load', (e) => {
         </form>
 	</div>
 </body>
-<c:if test="${param.no}">
 <script>
 const updateStudent = () => {
 	document.studentUpdateFrm.addEventListener('submit', (e) => {
@@ -128,5 +127,4 @@ const deleteStudent = () => {
 	});
 };
 </script>
-</c:if>
 </html>
